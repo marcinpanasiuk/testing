@@ -4,18 +4,21 @@ Office.initialize = function (reason) { };
  * Handles the OnNewMessageCompose event.
  */
 function onNewMessageComposeHandler(event) {
-    console.log("OnNewMessageCompose");
-    event.completed();
+    Office.context.mailbox.item.to.getAsync(function (result) {
+        console.log(`OnNewMessageCompose, recipients count: ${result.value}`);
+        event.completed();
+    })
 }
 
 /**
  * Handles the OnMessageRecipientsChanged event.
  */
 function onMessageRecipientsChangedHandler(event) {
-    console.log("OnMessageRecipientsChanged");
-
-    var signature = "<strong style='font-size: 25px;'> David Johnson </strong>";
-    Office.context.mailbox.item.body.setSignatureAsync(signature, { coercionType: "html" }, function () { event.completed(); });
+    Office.context.mailbox.item.to.getAsync(function (result) {
+        console.log(`OnMessageRecipientsChanged, recipients count: ${result.value}`);
+        var signature = "<strong style='font-size: 25px;'> David Johnson </strong>";
+        Office.context.mailbox.item.body.setSignatureAsync(signature, { coercionType: "html" }, function () { event.completed(); });
+    }
 }
 
 Office.actions.associate("onNewMessageComposeHandler", onNewMessageComposeHandler);
