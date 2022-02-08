@@ -16,8 +16,12 @@ function onNewMessageComposeHandler(event) {
 function onMessageRecipientsChangedHandler(event) {
     Office.context.mailbox.item.to.getAsync(function (result) {
         console.log(`OnMessageRecipientsChanged, recipients count: ${result.value.length}`);
-        var signature = "<strong style='font-size: 25px;'> David Johnson </strong>";
-        Office.context.mailbox.item.body.setSignatureAsync(signature, { coercionType: "html" }, function () { event.completed(); });
+
+        // we simulate siganture downloading and rendering delay
+        setTimeout(function () {
+            var signature = "<strong style='font-size: 25px;'> David Johnson </strong>";
+            Office.context.mailbox.item.body.setSignatureAsync(signature, { coercionType: "html" }, function () { event.completed(); });
+        }, 2000);
     });
 }
 
