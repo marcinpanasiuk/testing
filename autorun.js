@@ -7,7 +7,7 @@ function onNewMessageComposeHandler(event) {
     Office.context.mailbox.item.to.getAsync(function (result) {
         console.log(`OnNewMessageCompose, recipients count: ${result.value}`);
         event.completed();
-    })
+    });
 }
 
 /**
@@ -18,7 +18,7 @@ function onMessageRecipientsChangedHandler(event) {
         console.log(`OnMessageRecipientsChanged, recipients count: ${result.value}`);
         var signature = "<strong style='font-size: 25px;'> David Johnson </strong>";
         Office.context.mailbox.item.body.setSignatureAsync(signature, { coercionType: "html" }, function () { event.completed(); });
-    }
+    });
 }
 
 Office.actions.associate("onNewMessageComposeHandler", onNewMessageComposeHandler);
