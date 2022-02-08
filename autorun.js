@@ -5,6 +5,7 @@ Office.initialize = function (reason) { };
  */
 function onNewMessageComposeHandler(event) {
     console.log("OnNewMessageCompose");
+    event.completed();
 }
 
 /**
