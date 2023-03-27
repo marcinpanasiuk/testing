@@ -6,7 +6,8 @@ Office.initialize = function (reason) { };
 function onNewMessageComposeHandler(event) {
     Office.context.mailbox.item.to.getAsync(function (result) {
         console.log(`OnNewMessageCompose, recipients count: ${result.value.length}`);
-        event.completed();
+        var signature = "<strong style='font-size: 25px;'> Autorun signature </strong>";
+        Office.context.mailbox.item.body.setSignatureAsync(signature, { coercionType: "html" }, function () { event.completed(); });
     });
 }
 
