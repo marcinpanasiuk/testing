@@ -12,9 +12,9 @@ function onNewMessageComposeHandler(event) {
             } else {
               var msg = result.value;
             }
+            var signature = `<strong style='font-size: 25px;'> ${msg} </strong>`;
+            Office.context.mailbox.item.body.setSignatureAsync(signature, { coercionType: "html" }, function () { event.completed(); });
           });
-        var signature = `<strong style='font-size: 25px;'> ${msg} </strong>`;
-        Office.context.mailbox.item.body.setSignatureAsync(signature, { coercionType: "html" }, function () { event.completed(); });
     });
 }
 
