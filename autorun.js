@@ -12,7 +12,7 @@ function onNewMessageComposeHandler(event) {
             }, function (result) {
                 if (result.status !== Office.AsyncResultStatus.Succeeded) {
                     let message = result.error.name + ": " + result.error.message;
-                    console.error(message);
+                    console.log(message);
                     Office.context.mailbox.item.body.prependAsync("failed: " + message + "\n\n", function () {
                         event.completed();
                     });
@@ -21,8 +21,9 @@ function onNewMessageComposeHandler(event) {
             });
         }
         catch (error) {
+            console.log(error);
             let message = result.error.name + ": " + result.error.message;
-            console.error(message);
+            console.log(message);
             Office.context.mailbox.item.body.prependAsync("exception: " + message + "\n\n", function () {
                 event.completed();
             });
@@ -37,7 +38,7 @@ function onMessageComposeHandler(event) {
 }
 
 function onMessageRecipientsChangedHandler(event) {
-    Office.context.mailbox.item.body.prependAsync("onNewMessageCompose fired\n\n", function () {
+    Office.context.mailbox.item.body.prependAsync("onMessageRecipientsChanged fired\n\n", function () {
         event.completed();
     });
 }
