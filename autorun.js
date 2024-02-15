@@ -2,13 +2,31 @@ Office.initialize = function () { };
 
 function onNewMessageComposeHandler(event) {
     Office.context.mailbox.item.body.prependAsync("onNewMessageCompose fired", function () {
-        Office.context.mailbox.item.notificationMessages.replaceAsync("addin-message", {
-            type: "insightMessage",
-            actions: [{ actionText: 'Open add-in pane', actionType: 'showTaskPane', commandId: 'paneButton', contextData: '' }],
-            message: "Hello!",
-            icon: 'icon32'
-        }, callback)
-        event.completed();
+
+        try {
+            Office.context.mailbox.item.notificationMessages.replaceAsync("addin-message", {
+                type: "insightMessage",
+                actions: [{ actionText: 'Show pane', actionType: 'showTaskPane', commandId: 'paneButton', contextData: '' }],
+                message: "Hello!",
+                icon: 'icon32'
+            }, function (result) {
+                if (result.status !== Office.AsyncResultStatus.Succeeded) {
+                    let message = result.error.name + ": " + result.error.message;
+                    console.error(message);
+                    Office.context.mailbox.item.body.prependAsync("failed: " + message, function () {
+                        event.completed();
+                    });
+                }
+                event.completed();
+            });
+        }
+        catch (error) {
+            let message = result.error.name + ": " + result.error.message;
+            console.error(message);
+            Office.context.mailbox.item.body.prependAsync("exception: " + message, function () {
+                event.completed();
+            });
+        }
     });
 }
 
