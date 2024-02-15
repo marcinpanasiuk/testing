@@ -3,14 +3,14 @@
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xmlns:bt="http://schemas.microsoft.com/office/officeappbasictypes/1.0"
   xmlns:mailappor="http://schemas.microsoft.com/office/mailappversionoverrides/1.0" xsi:type="MailApp">
-  <Id>de523082-9729-4938-aa3f-0fb9e7db563b</Id>
+  <Id>de523082-9729-4937-aa3f-0fb9e7db563b</Id>
   <Version>1.0.0.0</Version>
   <ProviderName>CodeTwo</ProviderName>
   <DefaultLocale>en-US</DefaultLocale>
   <DisplayName DefaultValue="Sample Sigantures Add-in"/>
   <Description DefaultValue="A sample signatures Outlook Add-in."/>
-  <IconUrl DefaultValue="https://marcinpanasiuk.github.io/testing/icon-64.png"/>
-  <HighResolutionIconUrl DefaultValue="https://marcinpanasiuk.github.io/testing/icon-128.png"/>
+  <IconUrl DefaultValue="https://marcinpanasiuk.github.io/testing/images/icon-64.png"/>
+  <HighResolutionIconUrl DefaultValue="https://marcinpanasiuk.github.io/testing/images/icon-128.png"/>
   <SupportUrl DefaultValue="https://www.codetwo.com/support"/>
   <Hosts>
     <Host Name="Mailbox"/>
@@ -48,10 +48,34 @@
             </Runtime>
           </Runtimes>
           <DesktopFormFactor>
+            <ExtensionPoint xsi:type="MessageComposeCommandSurface">
+              <OfficeTab id="addinTab">
+                <Group id="addinGroup">
+                  <Label resid="groupLabel" />
+                  <Control xsi:type="Button" id="paneButton">
+                    <Label resid="paneButtonLabel" />
+                    <Supertip>
+                      <Title resid="paneButtonLabel" />
+                      <Description resid="paneSuperTipDescription" />
+                    </Supertip>
+                    <Icon>
+                      <bt:Image size="32" resid="icon32" />
+                      <bt:Image size="64" resid="icon64" />
+                    </Icon>
+                    <Action xsi:type="ShowTaskpane">
+                      <SourceLocation resid="addinPane" />
+                      <SupportsPinning>true</SupportsPinning>
+                    </Action>
+                  </Control>
+                </Group>
+              </OfficeTab>
+            </ExtensionPoint>
             <ExtensionPoint xsi:type="LaunchEvent">
               <LaunchEvents>
                 <LaunchEvent Type="OnNewMessageCompose" FunctionName="onNewMessageComposeHandler"/>
-                <LaunchEvent Type="OnMessageRecipientsChanged" FunctionName="onMessageRecipientsChangedHandler" />
+                <LaunchEvent Type="OnMessageCompose" FunctionName="onMessageComposeChangedHandler" />
+                <LaunchEvent Type="OnMessageRecipientsChanged" FunctionName="OnMessageRecipientsChangedHandler"/>
+                <LaunchEvent Type="OnMessageFromChanged" FunctionName="OnMessageFromChangedHandler"/>
               </LaunchEvents>
               <SourceLocation resid="WebViewRuntime.Url"/>
             </ExtensionPoint>
@@ -59,10 +83,22 @@
         </Host>
       </Hosts>
       <Resources>
+        <bt:Images>
+          <bt:Image id="icon32" DefaultValue="https://marcinpanasiuk.github.io/testing/images/icon-32.png"/>
+          <bt:Image id="icon64" DefaultValue="https://marcinpanasiuk.github.io/testing/images/icon-64.png"/>
+        </bt:Images>
         <bt:Urls>
           <bt:Url id="WebViewRuntime.Url" DefaultValue="https://marcinpanasiuk.github.io/testing/autorun.html" />
           <bt:Url id="JSRuntime.Url" DefaultValue="https://marcinpanasiuk.github.io/testing/autorun.js" />
+          <bt:Url id="addinPane" DefaultValue="https://marcinpanasiuk.github.io/testing/pane.html"/>
         </bt:Urls>
+        <bt:ShortStrings>
+          <bt:String id="groupLabel" DefaultValue="Repro"/>
+          <bt:String id="paneButtonLabel" DefaultValue="Outlook bugs Repro"/>
+        </bt:ShortStrings>
+        <bt:LongStrings>
+          <bt:String id="paneSuperTipDescription" DefaultValue="Reproduces add-in bugs in Outlook"/>
+        </bt:LongStrings>
       </Resources>
     </VersionOverrides>
   </VersionOverrides>
