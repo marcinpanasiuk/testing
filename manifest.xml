@@ -59,8 +59,9 @@
                       <Description resid="paneSuperTipDescription" />
                     </Supertip>
                     <Icon>
+                      <bt:Image size="16" resid="icon16" />
                       <bt:Image size="32" resid="icon32" />
-                      <bt:Image size="64" resid="icon64" />
+                      <bt:Image size="80" resid="icon80" />
                     </Icon>
                     <Action xsi:type="ShowTaskpane">
                       <SourceLocation resid="addinPane" />
@@ -84,8 +85,9 @@
       </Hosts>
       <Resources>
         <bt:Images>
+          <bt:Image id="icon16" DefaultValue="https://marcinpanasiuk.github.io/testing/images/icon-16.png"/>
           <bt:Image id="icon32" DefaultValue="https://marcinpanasiuk.github.io/testing/images/icon-32.png"/>
-          <bt:Image id="icon64" DefaultValue="https://marcinpanasiuk.github.io/testing/images/icon-64.png"/>
+          <bt:Image id="icon80" DefaultValue="https://marcinpanasiuk.github.io/testing/images/icon-80.png"/>
         </bt:Images>
         <bt:Urls>
           <bt:Url id="WebViewRuntime.Url" DefaultValue="https://marcinpanasiuk.github.io/testing/autorun.html" />
