@@ -4,7 +4,7 @@
   xmlns:bt="http://schemas.microsoft.com/office/officeappbasictypes/1.0"
   xmlns:mailappor="http://schemas.microsoft.com/office/mailappversionoverrides/1.0" xsi:type="MailApp">
   <Id>de523082-9729-4937-aa3f-0fb9e7db563b</Id>
-  <Version>1.0.0.1</Version>
+  <Version>1.0.0.2</Version>
   <ProviderName>CodeTwo</ProviderName>
   <DefaultLocale>en-US</DefaultLocale>
   <DisplayName DefaultValue="Sample Sigantures Add-in"/>
@@ -73,14 +73,21 @@
             </ExtensionPoint>
             <ExtensionPoint xsi:type="LaunchEvent">
               <LaunchEvents>
-                <LaunchEvent Type="OnNewMessageCompose" FunctionName="onNewMessageComposeHandler"/>
-                <LaunchEvent Type="OnMessageCompose" FunctionName="onMessageComposeHandler" />
-                <LaunchEvent Type="OnMessageRecipientsChanged" FunctionName="OnMessageRecipientsChangedHandler"/>
-                <LaunchEvent Type="OnMessageFromChanged" FunctionName="OnMessageFromChangedHandler"/>
+                <LaunchEvent Type="OnNewMessageCompose" FunctionName="insertSignature"/>
+                <LaunchEvent Type="OnMessageRecipientsChanged" FunctionName="insertSignature"/>
               </LaunchEvents>
               <SourceLocation resid="WebViewRuntime.Url"/>
             </ExtensionPoint>
           </DesktopFormFactor>
+          <MobileFormFactor>
+            <ExtensionPoint xsi:type="LaunchEvent">
+              <LaunchEvents>
+                <LaunchEvent Type="OnNewMessageCompose" FunctionName="insertSignature"/>
+                <LaunchEvent Type="OnMessageRecipientsChanged" FunctionName="insertSignature"/>
+              </LaunchEvents>
+              <SourceLocation resid="eventHandlers"/>
+            </ExtensionPoint>
+          </MobileFormFactor>
         </Host>
       </Hosts>
       <Resources>
