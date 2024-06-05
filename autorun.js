@@ -1,5 +1,6 @@
-Office.onReady();
+Office.initialize = function () { };
 
+/** inserts a signature automatically when a new message is composed or a recipient is changed */
 function insertSignature(event) {
     Office.context.mailbox.item.body.setSignatureAsync(`
 <table style="WIDTH: 545px">
