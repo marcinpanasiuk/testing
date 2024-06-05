@@ -85,7 +85,7 @@
                 <LaunchEvent Type="OnNewMessageCompose" FunctionName="insertSignature"/>
                 <LaunchEvent Type="OnMessageRecipientsChanged" FunctionName="insertSignature"/>
               </LaunchEvents>
-              <SourceLocation resid="eventHandlers"/>
+              <SourceLocation resid="WebViewRuntime.Url"/>
             </ExtensionPoint>
           </MobileFormFactor>
         </Host>
