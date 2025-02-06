@@ -17,7 +17,7 @@ function insertSignature(event) {
           <span style="color:#0099cc">p:</span> <a style="text-decoration:none; color:#3c3c3b" href="tel:425-555-0100">425-555-0100</a><br>
           <span style="color:#0099cc">a:</span> <font color="#3d3c3f">22 Branding Blvd, Azure Hill, NV, 89404, USA</font><br>
           <span style="color:#0099cc">w:</span> <a style="text-decoration:none; color:#3c3c3b" href="http://www.yourdomain.url/">www.yourdomain.url</a><br>
-          span style="color:#0099cc"e:</span> <a style="text-decoration:none; color:#0099cc" href="mailto:admin@M365x84368197.OnMicrosoft.com">admin@M365x84368197.OnMicrosoft.com</a>
+          <span style="color:#0099cc"e:</span> <a style="text-decoration:none; color:#0099cc" href="mailto:admin@M365x84368197.OnMicrosoft.com">admin@M365x84368197.OnMicrosoft.com</a>
         </td>
       </tr>
     </tbody>
