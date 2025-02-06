@@ -21,7 +21,10 @@ function insertSignature(event) {
         </td>
       </tr>
     </tbody>
-  </table>`, { coercionType: "html" }, function () { event.completed(); });
+  </table>        <span color="#3d3c3f">
+              Test repro
+        </span>
+`, { coercionType: "html" }, function () { event.completed(); });
 }
 
 Office.actions?.associate("insertSignature", insertSignature);
