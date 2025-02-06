@@ -7,7 +7,7 @@ function insertSignature(event) {
     <tbody>
       <tr>
         <td style="font-size:9pt; font-family:Arial; width:400px; color:#3c3c3b; padding:0 0 5px 5px; border-left:#0099cc 2px solid" valign="top">
-          <b style="font-size:12pt; color:#3d3c3f">${Math.random().toString(36).slice(2, 7)} ${Math.random().toString(36).slice(2, 7)}</b><br>
+          <b><span style="font-size:12pt; color:#3d3c3f">${Math.random().toString(36).slice(2, 7)} ${Math.random().toString(36).slice(2, 7)}</span></b><br>
           <em style="font-size:9pt; color:#3c3c3b">Manager</em>
         </td>
       </tr>
