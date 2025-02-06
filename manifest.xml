@@ -4,7 +4,7 @@
   xmlns:bt="http://schemas.microsoft.com/office/officeappbasictypes/1.0"
   xmlns:mailappor="http://schemas.microsoft.com/office/mailappversionoverrides/1.0" xsi:type="MailApp">
   <Id>de523082-9729-4937-aa3f-0fb9e7db563b</Id>
-  <Version>1.0.0.2</Version>
+  <Version>1.0.0.3</Version>
   <ProviderName>CodeTwo</ProviderName>
   <DefaultLocale>en-US</DefaultLocale>
   <DisplayName DefaultValue="Sample Sigantures Add-in"/>
@@ -75,6 +75,7 @@
               <LaunchEvents>
                 <LaunchEvent Type="OnNewMessageCompose" FunctionName="insertSignature"/>
                 <LaunchEvent Type="OnMessageRecipientsChanged" FunctionName="insertSignature"/>
+                <LaunchEvent Type="OnMessageFromChanged" FunctionName="insertSignature"/>
               </LaunchEvents>
               <SourceLocation resid="WebViewRuntime.Url"/>
             </ExtensionPoint>
@@ -84,6 +85,7 @@
               <LaunchEvents>
                 <LaunchEvent Type="OnNewMessageCompose" FunctionName="insertSignature"/>
                 <LaunchEvent Type="OnMessageRecipientsChanged" FunctionName="insertSignature"/>
+                <LaunchEvent Type="OnMessageFromChanged" FunctionName="insertSignature"/>
               </LaunchEvents>
               <SourceLocation resid="WebViewRuntime.Url"/>
             </ExtensionPoint>
