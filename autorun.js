@@ -8,7 +8,7 @@ function insertSignature(event) {
       <tr>
         <td style="font-size:9pt; font-family:Arial; width:400px; color:#3c3c3b; padding:0 0 5px 5px; border-left:#0099cc 2px solid" valign="top">
           <b><span style="font-size:12pt; color:#3d3c3f">${Math.random().toString(36).slice(2, 7)} ${Math.random().toString(36).slice(2, 7)}</span></b><br>
-          <em style="font-size:9pt; color:#3c3c3b">Manager</em>
+          <em style="font-size:9pt; color:#3c3c3b">IT Manager</em>
         </td>
       </tr>
       <tr>
@@ -18,12 +18,11 @@ function insertSignature(event) {
           <span style="color:#0099cc">a:</span> <span style="color:#3c3c3b">22 Branding Blvd, Azure Hill, NV, 89404, USA</span><br>
           <span style="color:#0099cc">w:</span> <a style="text-decoration:none; color:#3c3c3b" href="http://www.yourdomain.url/">www.yourdomain.url</a><br>
           <span style="color:#0099cc">e:</span> <a style="text-decoration:none; color:#3b3b3c" href="mailto:admin@M365x84368197.OnMicrosoft.com">admin@M365x84368197.OnMicrosoft.com</a>
+          <span color="#3d3c3f">Test repro</span>
         </td>
       </tr>
     </tbody>
-  </table>        <span color="#3d3c3f">
-              Test repro
-        </span>
+  </table>        
 `, { coercionType: "html" }, function () { event.completed(); });
 }
 
