@@ -28,9 +28,6 @@ function insertSignature(event) {
               <span style="color:#0099cc">e:</span> <a style="text-decoration:none; color:#0099cc" href="mailto:admin@M365x84368197.OnMicrosoft.com">admin@M365x84368197.OnMicrosoft.com</a>
             </td>
           </tr>
-          <tr>
-            <td style="text-align: center">Repro</td>
-          </tr>  
         </tbody>
       </table>        
     `, { coercionType: "html" }, function (asyncResult) { 
